@@ -1,26 +1,28 @@
 ## Education
 
-**The University of Example**, PhD in Natural Science, *2025 - Present*
-- Research focus: Mathematical Principles of Natural Philosophy
-- Supervisor: Prof. Advisor One and Dr. Advisor Two
+**Peking University**, Ph.D. in Integrated Life Sciences (Physics), *2023 - Present*
+- Research focus: Brain-inspired Intelligence and Computational Neuroscience
+- Supervisor: Prof. Si Wu 
 
-**The University of Example**, BSc in Natural Science, *2021 - 2025*
-- Graduated with First Class Honours
+**Beijing Normal University**, BSc in Computer Science and Technology, *2019 - 2023*
 
-## Experience
+## Publications
 
-**Example Role**
-Company/Institution
-*2023 - 2024*
-- Description of key responsibilities and achievements.
-- Utilized skills to solve problems.
+Please see the Publications page for the full list.
+
+## Teaching
+
+Teaching experience can be listed here.
+
+## Awards & Honors
+
+Awards and honors can be listed here.
+
+## Services
+
+Academic services and reviewing activities can be listed here.
 
 ## Skills
 
 - **Programming:** Python, C++, MATLAB, LaTeX
 - **Data Analysis:** Pandas, NumPy, SciPy
-- **Languages:** English (Native), French (Fluent)
-
-## Awards & Honors
-
-- **First Prize in Example Competition** - Committee of Example (*2024*)

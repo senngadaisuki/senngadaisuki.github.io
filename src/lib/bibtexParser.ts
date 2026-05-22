@@ -86,6 +86,8 @@ export function parseBibTeX(bibtexContent: string, locale?: string): Publication
       pages: tags.pages,
       doi: tags.doi,
       url: tags.url,
+      homepage: tags.homepage || tags.website,
+      homepageLabel: cleanBibTeXString(tags.homepage_label || tags.homepagelabel),
       code: tags.code,
       abstract: cleanBibTeXString(tags.abstract),
       description: cleanBibTeXString(tags.description || tags.note),
@@ -93,7 +95,7 @@ export function parseBibTeX(bibtexContent: string, locale?: string): Publication
       preview,
 
       // Store original BibTeX (excluding custom fields)
-      bibtex: reconstructBibTeX(entry, ['selected', 'preview', 'description', 'keywords', 'code']),
+      bibtex: reconstructBibTeX(entry, ['selected', 'preview', 'description', 'keywords', 'code', 'homepage', 'website', 'homepage_label', 'homepagelabel']),
     };
 
     // Clean up undefined fields

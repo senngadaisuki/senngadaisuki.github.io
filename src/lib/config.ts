@@ -23,7 +23,10 @@ export interface SiteConfig {
     location_details?: string[];
     google_scholar?: string;
     orcid?: string;
+    cv_pdf?: string;
     github?: string;
+    x?: string;
+    twitter?: string;
     linkedin?: string;
     [key: string]: string | string[] | undefined;
   };
@@ -39,7 +42,7 @@ export interface SiteConfig {
   }>;
   sections?: Array<{
     id: string;
-    type: 'markdown' | 'publications' | 'list' | 'cards';
+    type: 'markdown' | 'education' | 'publications' | 'list' | 'cards';
     source?: string;
     title?: string;
     filter?: string;

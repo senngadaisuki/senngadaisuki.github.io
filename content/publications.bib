@@ -1,91 +1,78 @@
-@article{liu2024stability,
+% Optional link fields for the website:
+% homepage={https://...} controls the "Article homepage" button.
+% homepage_label={Project page} optionally changes that button text.
+@inproceedings{zhang2026dila,
+  title     = {{DiLA}: Disentangled Latent Action World Models},
+  author    = {Zhang, Tianqiu# and Lyu, Muyang# and Zhang, Yufan and Fang, Fang and Wu, Si*},
+  booktitle = {Forty-third International Conference on Machine Learning},
+  year      = {2026},
+  url       = {https://openreview.net/forum?id=BRBHruBDkb},
   selected={true},
-  title = {Numerical Stability Analysis of High-Order Runge-Kutta Methods in Quantum Dynamics},
-  author = {Jiale Liu and Sarah O'Connor*},
-  year = {2024},
-  month = mar,
-  journal = {Journal of Computational Physics},
-  volume = {450},
-  pages = {110832},
-  issn = {0021-9991},
-  doi = {10.1016/j.jcp.2023.110832},
-  urldate = {2024-12-02},
-  langid = {english},
-  abstract = {The precise time-evolution of quantum systems is a cornerstone of computational physics. This paper investigates the numerical stability of high-order Runge-Kutta (RK) methods when applied to the time-dependent Schrödinger equation. We derive rigorous stability boundaries for symplectic and non-symplectic RK integrators and demonstrate that specific implicit schemes preserve unitarity over extended simulation times. By analyzing the spectral properties of the Hamiltonian operator, we establish a relationship between the Courant-Friedrichs-Lewy (CFL) condition and the imaginary eigenvalues characteristic of quantum propagators. Our findings are validated through simulations of wave packet scattering and harmonic oscillator dynamics, showing that our proposed optimized RK coefficients significantly reduce phase error accumulation compared to standard integrators.},
-  description={A rigorous analysis of numerical stability boundaries for high-order Runge-Kutta integrators in the context of time-dependent quantum mechanics.},
-  keywords={Computational Physics, Quantum Dynamics, Numerical Analysis, Runge-Kutta Methods}
+  homepage={https://disentangled-latent-action-world-models.github.io/},
+  code={https://github.com/senngadaisuki/disentangled-latent-action-world-models},
+  abstract  = {Latent Action Models (LAMs) enable the learning
+of world models from unlabeled video by inferring abstract actions between consecutive frames.
+However, LAMs face a fundamental trade-off between action abstraction and generation fidelity.
+Existing methods typically circumvent this issue by using two-stage training with pre-trained
+world models or by limiting predictions to optical flow. In this paper, we introduce DiLA, a
+novel Disentangled Latent Action world model
+that aims to resolve this trade-off via contentstructure disentanglement. Our key insight is that
+disentanglement and latent action learning are coevolving: the predictive bottleneck inherent in
+latent action learning serves as a driving force for
+disentanglement, compelling the model to distill
+spatial layouts into the structure pathway while
+offloading visual details to a separate content pathway for generation. This synergy yields a continuous, semantically structured latent action space
+without compromising generative quality. DiLA
+achieves superior results in video generation quality, action transfer, visual planning, and manifold
+interpretability. These findings establish DiLA as
+a unified framework that simultaneously achieves
+high-level action abstraction and high-fidelity generation, advancing the frontier of self-supervised
+world model learning.},
+  preview={DiLA.png},
+
 }
 
-@inproceedings{smith2024constructive,
-  title = {A Constructive Proof of the Generalized Riemann Hypothesis for Function Fields over Finite Constants},
-  booktitle = {Proceedings of the 2024 International Congress of Mathematicians (ICM)},
-  author = {John Smith# and Jiale Liu#* and Alan Turing},
-  year = {2024},
-  month = jun,
-  pages = {205--218},
-  publisher = {EMS Press},
-  address = {Paris, France},
-  doi = {10.4171/ICM2024/102},
-  urldate = {2024-12-02},
-  isbn = {978-3-03719-202-8},
-  abstract = {We present a novel constructive proof for the Generalized Riemann Hypothesis (GRH) specifically within the context of function fields over finite constants. Unlike previous existential approaches, our method utilizes the spectral interpretation of the Frobenius automorphism acting on étale cohomology groups. We explicitly construct the L-functions associated with algebraic curves and demonstrate that their zeros lie strictly on the critical line Re(s) = 1/2. This work bridges the gap between classical analytic number theory and geometric invariant theory, offering new insights into the distribution of prime polynomials. The constructive nature of our proof allows for the algorithmic verification of L-function properties for curves of genus g > 100, which was previously computationally intractable.},
-  preview={example.png},
-  description={A constructive proof demonstrating the validity of the Generalized Riemann Hypothesis for function fields using spectral interpretation of the Frobenius automorphism.},
-  keywords={Number Theory, Riemann Hypothesis, Function Fields, Algebraic Geometry}
-}
-
-@inproceedings{brown2023monte,
+@inproceedings{zhang2026structure,
+  title = {Structure Abstraction and Generalization in a Hippocampal-Entorhinal Inspired World Model},
+  author = {Zhang, Tianqiu# and Lyu, Muyang# and Liu, Xiao and Wu, Si*},
+  booktitle = {Forty-third International Conference on Machine Learning},
+  year = {2026},
+  url = {https://openreview.net/forum?id=AYXgo5FjYz},
+  homepage={https://hpc-mec-worldmodel.github.io/},
+  preview={StructureAbstraction.png},
+  abstract = {Humans abstract experiences into structured representations to facilitate pattern inference and knowledge transfer. While the hippocampalentorhinal (HPC-MEC) circuit is known to represent both spatial and conceptual spaces, the mechanisms for concurrently extracting abstract structures from continuous, high-dimensional dynamics remain poorly understood. We propose a brain-inspired hierarchical model that simultaneously infers latent transitions and constructs a predictive visual world model. Our architecture employs an inverse model for structural extraction alongside an HPC-MEC coupling model that dissociates relational structures (MEC) from integrated episodic scenes (HPC). Using primitive transformation dynamics as a benchmark, we demonstrate the model’s capacity for structural abstraction. By leveraging velocity-driven path integration, the framework enables robust prediction and structural reuse across diverse contexts, thereby achieving structural generalization. This work provides a novel computational framework for understanding how brain-inspired, selfsupervised learning of world models facilitates the acquisition of reusable abstract knowledge.},
   selected={true},
-  title = {Monte Carlo Simulations of Phase Transitions in 2D Ising Models on Non-Euclidean Lattices},
-  shorttitle = {Ising on Hyperbolic Planes},
-  booktitle = {2023 International Conference on Computational Physics (ICCP)},
-  author = {Charlie Brown and Jiale Liu*},
-  year = {2023},
-  month = dec,
-  pages = {45--52},
-  publisher = {APS},
-  address = {Tokyo, Japan},
-  doi = {10.1103/ICCP.2023.0045},
-  urldate = {2024-12-02},
-  isbn = {978-0-7354-2000-1},
-  abstract = {The behavior of spin systems on curved geometries offers a unique window into the interplay between topology and statistical mechanics. This study employs extensive Monte Carlo simulations to explore the phase transitions of the 2D Ising model mapped onto hyperbolic lattices (Poincaré disk). We utilize the Wolff cluster algorithm to overcome critical slowing down near the phase transition temperature. Our results indicate that the critical exponents on negatively curved surfaces deviate significantly from the standard Onsager solution for flat Euclidean lattices. Specifically, we observe a suppression of the correlation length divergence, suggesting a mean-field-like behavior induced by the exponential expansion of the lattice volume. These findings have implications for understanding quantum gravity models and holographic duality.},
-  preview={example.png},
-  description={Monte Carlo study revealing mean-field-like phase transitions and critical exponent deviations for Ising models on hyperbolic non-Euclidean lattices.},
-  keywords={Statistical Mechanics, Monte Carlo Simulation, Ising Model, Non-Euclidean Geometry}
+  code = {https://github.com/senngadaisuki/hpc-mec-worldmodel},
 }
 
-@article{doe2025existence,
-  title = {On the Existence and Uniqueness of Solutions to Non-Linear Stochastic Partial Differential Equations},
-  author = {Jane Doe and Jiale Liu and Richard Feynman},
-  year = {2025},
-  month = jun,
-  journal = {Annals of Probability},
-  volume = {53},
-  number = {4},
-  pages = {1201--1245},
-  issn = {0091-1798},
-  doi = {10.1214/25-AOP1201},
-  copyright = {https://imstat.org/journals-and-publications/annals-of-probability/},
-  abstract={We establish the existence and uniqueness of strong solutions for a class of non-linear Stochastic Partial Differential Equations (SPDEs) driven by multiplicative Lévy noise. The equations under consideration model turbulent fluid flow and heat transport in random media. By employing a Galerkin approximation scheme combined with a compact embedding theorem, we prove the convergence of the approximate solutions in appropriate Hilbert spaces. Furthermore, we derive a priori estimates that ensure the global regularity of the solution almost surely. A key contribution of this work is the treatment of non-Lipschitz coefficients using a stochastic Gronwall inequality, extending the applicability of the theory to more singular physical models. We also discuss the ergodic properties of the invariant measures associated with the SPDEs.},
-  preview={example.png},
-  description={Mathematical proof of existence and uniqueness for non-linear SPDEs with multiplicative Lévy noise, extending theory to non-Lipschitz coefficients.},
-  keywords={Stochastic Analysis, SPDE, Existence Theorems, Probability Theory}
+@article{liu2024learn,
+  selected={true},
+  title={To learn or not to learn, that is the question—a feature-task dual learning model of perceptual learning},
+  author={Liu, Xiao and Lyu, Muyang and Yu, Cong* and Wu, Si*},
+  journal={Advances in Neural Information Processing Systems},
+  volume={37},
+  pages={37736--37764},
+  year={2024},
+  url = {https://openreview.net/forum?id=g3MbZOw0qO},
+  code = {https://github.com/XiaoLiu-git/ToLearnOrNotToLearn},
+  abstract = {Perceptual learning refers to the practices through which participants learn to improve their performance in perceiving sensory stimuli. Two seemingly conflicting phenomena of specificity and transfer have been widely observed in perceptual learning.
+
+  Here, we propose a dual-learning model to reconcile these two phenomena. The model consists of two learning processes. One is task-based learning, which is fast and enables the brain to adapt to a task rapidly by using existing feature representations. The other is feature-based learning, which is slow and enables the brain to improve feature representations to match the statistical change of the environment. Associated with different training paradigms, the interactions between these two learning processes induce the rich phenomena of perceptual learning. Specifically, in the training paradigm where the same stimulus condition is presented excessively, feature-based learning is triggered, which incurs specificity, while in the paradigm where the stimulus condition varies during the training, task-based learning dominates to induce the transfer effect. As the number of training sessions under the same stimulus condition increases, a transition from transfer to specificity occurs.
+
+  We demonstrate that the dual-learning model can account for both the specificity and transfer phenomena observed in classical psychophysical experiments. We hope that this study gives us insight into understanding how the brain balances the accomplishment of a new task and the consumption of learning effort.},
+  preview={ToLearnOrNotToLearn.png},
 }
 
-
-@article{liu2025algorithmic,
-  title = {Algorithmic Complexity of Tensor Network Contractions in Many-Body Localization},
-  author = {Jiale Liu and Ada Lovelace*},
-  year = {2025},
-  month = sep,
-  journal = {Physical Review E},
-  issn = {2470-0045},
-  publisher = {APS},
-  abstract = {Simulating the dynamics of many-body localized (MBL) systems poses a significant challenge due to the logarithmic growth of entanglement entropy. This paper analyzes the algorithmic complexity of contracting Tensor Networks, specifically Matrix Product States (MPS) and Projected Entangled Pair States (PEPS), when applied to MBL Hamiltonians. We prove that while the exact contraction is #P-complete, approximate contraction schemes based on singular value decomposition (SVD) truncation exhibit polynomial time complexity with bounded error for short-time evolution. However, we identify a "complexity phase transition" at the ergodic-MBL transition point, where the bond dimension required for a fixed accuracy diverges exponentially. We propose a novel adaptive bond-dimension algorithm that optimizes computational resources by exploiting the area law of entanglement in the localized phase, demonstrating superior performance on Heisenberg spin chains.},
-  description={Complexity analysis of tensor network contractions in MBL systems, identifying a complexity phase transition and proposing an adaptive algorithm.},
-  keywords={Tensor Networks, Many-Body Localization, Complexity Theory, Quantum Information},
-  doi = {10.1103/PhysRevE.112.092101},
-  selected = {true},
-  code = {https://github.com/xyjoey/PRISM},
+@inproceedings{wang2024differentiable,
+  selected={true},
+  title={A Differentiable Approach to Multi-scale Brain Modeling},
+  author={Wang, Chaoming* and Lyu, Muyang and Zhang, Tianqiu and He, Sichao and Wu, Si*},
+  booktitle={ICML 2024 Workshop on Differentiable Almost Everything: Differentiable Relaxations, Algorithms, Operators, and Simulators},
+  url = {https://openreview.net/forum?id=a6cpnxdGq7},
+  year={2024},
+  abstract={We present a multi-scale differentiable brain modeling workflow utilizing BrainPy [1], [2], a unique differentiable brain simulator that combines accurate brain simulation with powerful gradientbased optimization. We leverage this capability of BrainPy across different brain scales. At the single-neuron level, we implement differentiable neuron models and employ gradient methods to optimize their fit to electrophysiological data. On the network level, we incorporate connectomic data to construct biologically constrained network models. Finally, to replicate animal behavior, we train these models on cognitive tasks using gradient-based learning rules. Experiments demonstrate that our approach achieves superior performance and speed in fitting generalized leaky integrate-and-fire and Hodgkin-Huxley single neuron models. Additionally, training a biologically-informed network of excitatory and inhibitory spiking neurons on working memory tasks successfully replicates observed neural activity and synaptic weight distributions. Overall, our differentiable multi-scale simulation approach offers a promising tool to bridge neuroscience data across electrophysiological, anatomical, and behavioral scales.},
+  code = {https://github.com/chaoming0625/differentiable-brain-modeling-workflow},
+  preview={DiffBrainSimu.png}
 }
+
 

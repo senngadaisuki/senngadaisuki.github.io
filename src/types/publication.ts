@@ -34,6 +34,8 @@ export interface Publication {
   arxivId?: string;
   pmid?: string;
   url?: string;
+  homepage?: string;
+  homepageLabel?: string;
   code?: string;
   pdfUrl?: string;
   tags: string[];

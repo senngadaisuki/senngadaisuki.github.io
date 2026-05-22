@@ -5,15 +5,17 @@ import HomePageClient, { type HomePageLocaleData } from '@/components/home/HomeP
 import { Publication } from '@/types/publication';
 import { BasePageConfig, PublicationPageConfig, TextPageConfig, CardPageConfig } from '@/types/page';
 import { getRuntimeI18nConfig } from '@/lib/i18n/config';
+import type { EducationItem } from '@/components/home/Education';
 
 interface SectionConfig {
   id: string;
-  type: 'markdown' | 'publications' | 'list';
+  type: 'markdown' | 'education' | 'publications' | 'list';
   title?: string;
   source?: string;
   filter?: string;
   limit?: number;
   content?: string;
+  educationItems?: EducationItem[];
   publications?: Publication[];
   items?: NewsItem[];
 }
@@ -37,6 +39,13 @@ function processSections(sections: SectionConfig[], locale?: string): SectionCon
           ...section,
           content: section.source ? getMarkdownContent(section.source, locale) : '',
         };
+      case 'education': {
+        const educationData = section.source ? getTomlContent<{ items: EducationItem[] }>(section.source, locale) : null;
+        return {
+          ...section,
+          educationItems: educationData?.items || [],
+        };
+      }
       case 'publications': {
         const bibtex = getBibtexContent('publications.bib', locale);
         const allPubs = parseBibTeX(bibtex, locale);

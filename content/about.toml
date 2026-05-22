@@ -3,9 +3,8 @@ title = "About"
 
 [profile]
 research_interests = [
-  "Computational Physics",
-  "Mathematical Principles",
-  "Proof of Theorems"
+  "Brain-inspired Intelligence",
+  "Computational Neuroscience"
 ]
 
 [[sections]]
@@ -15,15 +14,20 @@ source = "bio.md"
 title = "About"
 
 [[sections]]
+id = "education"
+type = "education"
+source = "education.toml"
+title = "Education"
+
+[[sections]]
 id = "featured_publications"
 type = "publications"
 title = "Selected Publications"
 filter = "selected"
-limit = 5
+limit = 8
 
 [[sections]]
 id = "news"
 type = "list"
 title = "News"
 source = "news.toml"
-

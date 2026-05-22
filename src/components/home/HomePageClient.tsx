@@ -2,6 +2,7 @@
 
 import Profile from '@/components/home/Profile';
 import About from '@/components/home/About';
+import Education, { type EducationItem } from '@/components/home/Education';
 import SelectedPublications from '@/components/home/SelectedPublications';
 import News, { NewsItem } from '@/components/home/News';
 import PublicationsList from '@/components/publications/PublicationsList';
@@ -14,12 +15,13 @@ import { useLocaleStore } from '@/lib/stores/localeStore';
 
 interface SectionConfig {
   id: string;
-  type: 'markdown' | 'publications' | 'list';
+  type: 'markdown' | 'education' | 'publications' | 'list';
   title?: string;
   source?: string;
   filter?: string;
   limit?: number;
   content?: string;
+  educationItems?: EducationItem[];
   publications?: Publication[];
   items?: NewsItem[];
 }
@@ -76,6 +78,14 @@ export default function HomePageClient({ dataByLocale, defaultLocale }: HomePage
                         key={section.id}
                         content={section.content || ''}
                         title={section.title}
+                      />
+                    );
+                  case 'education':
+                    return (
+                      <Education
+                        key={section.id}
+                        title={section.title}
+                        items={section.educationItems || []}
                       />
                     );
                   case 'publications':

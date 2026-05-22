@@ -15,6 +15,7 @@ import { Publication } from '@/types/publication';
 import { PublicationPageConfig } from '@/types/page';
 import { cn } from '@/lib/utils';
 import { useMessages } from '@/lib/i18n/useMessages';
+import { getArticleHomepage } from '@/lib/publicationLinks';
 import FormattedBibTeXText from './FormattedBibTeXText';
 
 interface PublicationsListProps {
@@ -31,6 +32,8 @@ export default function PublicationsList({ config, publications, embedded = fals
     const [showFilters, setShowFilters] = useState(false);
     const [expandedBibtexId, setExpandedBibtexId] = useState<string | null>(null);
     const [expandedAbstractId, setExpandedAbstractId] = useState<string | null>(null);
+    const hasEqualContribution = publications.some((pub) => pub.authors.some((author) => author.isCoAuthor));
+    const hasCorrespondingAuthor = publications.some((pub) => pub.authors.some((author) => author.isCorresponding));
 
     // Extract unique years and types for filters
     const years = useMemo(() => {
@@ -70,6 +73,13 @@ export default function PublicationsList({ config, publications, embedded = fals
                 {config.description && (
                     <p className={`${embedded ? "text-base" : "text-lg"} text-neutral-600 dark:text-neutral-500 max-w-2xl`}>
                         {config.description}
+                    </p>
+                )}
+                {(hasEqualContribution || hasCorrespondingAuthor) && (
+                    <p className="mt-3 text-sm text-neutral-500 dark:text-neutral-500">
+                        {hasEqualContribution && <span>* {messages.publications.equalContribution}</span>}
+                        {hasEqualContribution && hasCorrespondingAuthor && <span className="mx-2">·</span>}
+                        {hasCorrespondingAuthor && <span>† {messages.publications.correspondingAuthor}</span>}
                     </p>
                 )}
             </div>
@@ -191,14 +201,18 @@ export default function PublicationsList({ config, publications, embedded = fals
                         {messages.publications.noResults}
                     </div>
                 ) : (
-                    filteredPublications.map((pub, index) => (
-                        <motion.div
-                            key={pub.id}
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.4, delay: 0.1 * index }}
-                            className="bg-white dark:bg-neutral-900 p-6 rounded-xl shadow-sm border border-neutral-200 dark:border-neutral-800 hover:shadow-md transition-all duration-200"
-                        >
+                    filteredPublications.map((pub, index) => {
+                        const articleHomepage = pub.homepage || pub.url ? getArticleHomepage(pub) : null;
+
+                        return (
+                            <motion.div
+                                key={pub.id}
+                                id={pub.id}
+                                initial={{ opacity: 0, y: 20 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.4, delay: 0.1 * index }}
+                                className="scroll-mt-24 bg-white dark:bg-neutral-900 p-6 rounded-xl shadow-sm border border-neutral-200 dark:border-neutral-800 hover:shadow-md transition-all duration-200"
+                            >
                             <div className="flex flex-col md:flex-row gap-6">
                                 {pub.preview && (
                                     <div className="w-full md:w-48 flex-shrink-0">
@@ -220,11 +234,14 @@ export default function PublicationsList({ config, publications, embedded = fals
                                     <p className={`${embedded ? "text-sm" : "text-base"} text-neutral-600 dark:text-neutral-400 mb-2`}>
                                         {pub.authors.map((author, idx) => (
                                             <span key={idx}>
-                                                <span className={`${author.isHighlighted ? 'font-semibold text-accent' : ''} ${author.isCoAuthor ? `underline underline-offset-4 ${author.isHighlighted ? 'decoration-accent' : 'decoration-neutral-400'}` : ''}`}>
+                                                <span className={author.isHighlighted ? 'font-semibold text-accent' : ''}>
                                                     {author.name}
                                                 </span>
+                                                {author.isCoAuthor && (
+                                                    <sup className={`ml-0.5 ${author.isHighlighted ? 'text-accent' : 'text-neutral-600 dark:text-neutral-400'}`}>*</sup>
+                                                )}
                                                 {author.isCorresponding && (
-                                                    <sup className={`ml-0 ${author.isHighlighted ? 'text-accent' : 'text-neutral-600 dark:text-neutral-400'}`}>†</sup>
+                                                    <sup className={`ml-0.5 ${author.isHighlighted ? 'text-accent' : 'text-neutral-600 dark:text-neutral-400'}`}>†</sup>
                                                 )}
                                                 {idx < pub.authors.length - 1 && ', '}
                                             </span>
@@ -241,6 +258,16 @@ export default function PublicationsList({ config, publications, embedded = fals
                                     )}
 
                                     <div className="flex flex-wrap gap-2 mt-auto">
+                                        {articleHomepage && (
+                                            <a
+                                                href={articleHomepage}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="inline-flex items-center px-3 py-1 rounded-md text-xs font-medium bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 hover:bg-accent hover:text-white transition-colors"
+                                            >
+                                                {pub.homepageLabel || messages.publications.articleHomepage}
+                                            </a>
+                                        )}
                                         {pub.doi && (
                                             <a
                                                 href={`https://doi.org/${pub.doi}`}
@@ -335,8 +362,9 @@ export default function PublicationsList({ config, publications, embedded = fals
                                     </AnimatePresence>
                                 </div>
                             </div>
-                        </motion.div>
-                    ))
+                            </motion.div>
+                        );
+                    })
                 )}
             </div>
         </motion.div>
